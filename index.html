@@ -1,19 +1,47 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title>vue-enjoy</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
-    <!-- <meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no" /> -->
-  </head>
-  <body>
-    <div id="app"></div>
-  </body>
-  <script src="https://use.fontawesome.com/5fef09f87d.js"></script>
+<head>
+  <meta charset="utf-8">
+  <title>vue-enjoy</title>
+  <!-- <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0"> -->
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <!-- <meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no" /> -->
+</head>
+<body>
+  <div id="app"></div>
+</body>
+<script src="https://use.fontawesome.com/5fef09f87d.js"></script>
 </html>
 <style type="text/css">
 	body{
 		margin: 0;
     font-size: 10px;
-	}
+  }
+  .e-px:before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    border-top: 1px solid #8d8d8d;
+    border-radius:0px;
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: scale(0.5, 0.5);
+    -ms-transform: scale(0.5, 0.5);
+    -o-transform: scale(0.5, 0.5);
+    transform: scale(0.5, 0.5);
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  @media screen and (min-width:321px) and (max-width:375px){html{font-size:10px}}
+  @media screen and (min-width:376px) and (max-width:414px){html{font-size:10px}}
+  @media screen and (min-width:415px) and (max-width:639px){html{font-size:12px}}
+  @media screen and (min-width:640px) and (max-width:719px){html{font-size:12px}}
+  @media screen and (min-width:720px){html{font-size:16px}}
+  @media screen and (min-width:750px) and (max-width:799px){html{font-size:23.5px}}
+  @media screen and (min-width:800px)and (max-width:1199px){html{font-size:25px}}
+  @media screen and (min-width:1200px){html{font-size:30px}}
 </style>

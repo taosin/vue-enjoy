@@ -3,50 +3,32 @@
 		<transition name="bounce">
 			<router-view></router-view>
 		</transition>
+		<bottom v-model="value" :current="current"></bottom>
 	</div>
 </template>
 
 <script>
+	import bottom from '@/components/bottom.vue'
 	export default {
 		name: 'app',
-		watch:{
-			$route(to, from){
+		components:{
+			bottom
+		},
+		data () {
+			return {
+				value:[
+				{ text:'精选', icon:'fa-home', url:'index' },
+				{ text:'分类', icon:'fa-server', url:'cate' },
+				{ text:'杂志', icon:'fa-paper-plane', url:'magazine' },
+				{ text:'购物车', icon:'fa-tags', url:'cart' },
+				{ text:'我的', icon:'fa-user-o', url:'my' },
+				],
+				current:0
 			}
+		},
+		watch:{
 		}
 	}
 </script>
 <style scoped lang='less'>
-	.bounce-enter-active {
-		animation: bounce-in .5s;
-		-webkit-animation:bounce-in .5s;
-	}
-
-	.bounce-leave-active {
-		animation: bounce-out .2s;
-		-webkit-animation: bounce-out .2s;
-	}
-
-	@keyframes bounce-in {
-		0% {
-			transform: scale(0);
-		}
-		50% {
-			transform: scale(1.05);
-		}
-		100% {
-			transform: scale(1);
-		}
-	}
-
-	@keyframes bounce-out {
-		0% {
-			transform: scale(1);
-		}
-		50% {
-			transform: scale(0.95);
-		}
-		100% {
-			transform: scale(0);
-		}
-	}
 </style>
