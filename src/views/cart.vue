@@ -1,6 +1,6 @@
 <template>
 	<div>
-	cart
+		<input type="file" accept="image/*" capture="camera">
 	</div>
 </template>
 <script>

@@ -68,6 +68,7 @@ module.exports = {
     'no-console':0,
     'no-unneeded-ternary':0,
     'no-confusing-arrow':0,
-    'no-tabs':0
+    'no-tabs':0,
+    'no-undef':0
   }
 }

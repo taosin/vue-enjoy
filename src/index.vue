@@ -11,20 +11,25 @@
 			<!-- 今日推荐 -->
 			<div class="e-today">
 				<div class="e-today-top">
-					<p>
+					<p class="e-today-top-p">
 						<span>今日推荐</span>
-						<span>1</span>
-						<span>/7</span>
+						<span class="e-today-top-p-span"> {{initialSlide}}
+							<span class="e-today-top-p-span-span">/{{todays.length}}</span>
+						</span>
 					</p>
-					<p>每天告诉你大家爱吃的和最近值得吃的</p>
+					<p class="e-today-top-desc">每天告诉你大家爱吃的和最近值得吃的</p>
 				</div>
 				<div class="e-today-swiper">
-					<div class="e-today-items">
-						<div class="e-today-item" v-for="today in todays">
-							<img :src="today.img">
-							<p>{{today.type}}</p>
-							<p>{{today.title}}</p>
-							<p>{{today.desc}}</p>
+					<div class="swiper-container">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide" v-for="today in todays">
+								<div class="swiper-slide-div">
+									<img :src="today.img">
+									<p class="topic">{{today.type}}</p>
+									<p class="title">{{today.title}}</p>
+									<p class="desc">{{today.desc}}</p>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -33,6 +38,8 @@
 	</div>
 </template>
 <script>
+	require('./../static/libs/swiper.min.css');
+	require('./../static/libs/swiper.min.js');
 	export default {
 		components:{
 		},
@@ -40,8 +47,33 @@
 		data () {
 			return {
 				todays:[
+				{ img:'http://orj0e0gb4.bkt.clouddn.com/img_1.png', title:'最高立减30元！周三的福利现在就有！', desc:'浦东香格里拉翡翠36单人晚餐、欠揍双人餐等立减30！', type:'今日福利' },
+				{ img:'http://orj0e0gb4.bkt.clouddn.com/img_1.png', title:'最高立减30元！周三的福利现在就有！', desc:'浦东香格里拉翡翠36单人晚餐、欠揍双人餐等立减30！', type:'今日福利' },
+				{ img:'http://orj0e0gb4.bkt.clouddn.com/img_1.png', title:'最高立减30元！周三的福利现在就有！', desc:'浦东香格里拉翡翠36单人晚餐、欠揍双人餐等立减30！', type:'今日福利' },
+				{ img:'http://orj0e0gb4.bkt.clouddn.com/img_1.png', title:'最高立减30元！周三的福利现在就有！', desc:'浦东香格里拉翡翠36单人晚餐、欠揍双人餐等立减30！', type:'今日福利' },
+				{ img:'http://orj0e0gb4.bkt.clouddn.com/img_1.png', title:'最高立减30元！周三的福利现在就有！', desc:'浦东香格里拉翡翠36单人晚餐、欠揍双人餐等立减30！', type:'今日福利' },
 				{ img:'http://orj0e0gb4.bkt.clouddn.com/img_1.png', title:'最高立减30元！周三的福利现在就有！', desc:'浦东香格里拉翡翠36单人晚餐、欠揍双人餐等立减30！', type:'今日福利' }
-				]
+				],
+				initialSlide:0
+			}
+		},
+		mounted(){
+			this.initSwiper();
+		},
+		methods:{
+			initSwiper(){
+				const self = this;
+				var swiper = new Swiper('.swiper-container', {
+					pagination: '.swiper-pagination',
+					slidesPerView: 1.1,
+					centeredSlides: true,
+					paginationClickable: true,
+					spaceBetween: 10,
+					slidesOffsetBefore : 6,
+					onTransitionEnd: function(swipers){
+						self.initialSlide = swipers.activeIndex + 1
+					}
+				});
 			}
 		}
 	}
@@ -70,22 +102,85 @@
 		}
 		.e-main{
 			top: 40px;
-			padding: 40px 0;
+			padding: 30px 0;
 			width: 100%;
-			overflow-x: auto;
 			.e-today{
-				padding: 10px;
 				clear: both;
-				.e-today-swiper{
-					.e-today-items{
-						.e-today-item{
-							font-size: 10px;
-							float: left;
-							margin-right: 10px;
-							img{
-								width: 100%;
+				.e-today-top{
+					padding: 10px 20px;
+					.e-today-top-p{
+						font-size: 16px;
+						font-weight: bold;
+						.e-today-top-p-span{
+							float: right;
+							.e-today-top-p-span-span{
+								font-size: 12px;
+								color: #888;
 							}
 						}
+					}
+					.e-today-top-desc{
+						margin-top: -15px;
+						font-size: 7pt;
+						color: #888;
+					}
+				}
+				.e-today-swiper{
+					margin-top: -5px;
+					text-align: center;
+					.swiper-container {
+						width: 100%;
+						margin: 0 auto;
+					}
+					.swiper-slide {
+						text-align: center;
+						background: #fff;
+						width: 90%;
+						display: -webkit-box;
+						display: -ms-flexbox;
+						display: -webkit-flex;
+						display: flex;
+						-webkit-box-pack: center;
+						-ms-flex-pack: center;
+						-webkit-justify-content: center;
+						justify-content: center;
+						-webkit-box-align: center;
+						-ms-flex-align: center;
+						-webkit-align-items: center;
+						align-items: center;
+						.swiper-slide-div{
+							text-align: left;
+							img{
+								width: 100%;
+								text-align: center;
+								clear: both;
+								margin-bottom: 10px;
+							}
+							p{
+								clear: both;
+								padding: 0;
+								margin: 0;
+							}
+							.topic{
+								color: red;
+								font-size: 7pt;
+							}
+							.title{
+								color: #333;
+								font-weight: bold;
+								font-size: 10pt;
+							}
+							.desc{
+								color: #888;
+								font-size: 1em;
+							}
+						}
+					}
+					.swiper-slide:nth-child(2n) {
+						width: 90%;
+					}
+					.swiper-slide:nth-child(3n) {
+						width: 90%;
 					}
 				}
 			}
