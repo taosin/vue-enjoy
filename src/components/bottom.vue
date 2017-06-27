@@ -58,6 +58,8 @@ s
 		position: fixed;
 		bottom: 0;
 		overflow: hidden;
+		background: #fff;
+		z-index: 9999;
 		.e-bottom-item{
 			ul{
 				padding: 0;
