@@ -84,34 +84,27 @@
 				</div>
 			</div>
 			<!-- 新人专区 -->
-			<div class="new-person">
-				<!-- 今日推荐 -->
-				<div class="e-today">
-					<div class="e-today-top">
-						<p class="e-today-top-p">
-							<span>新人专区</span>
-							<span class="e-today-top-p-span"> {{initialSlide2}}
-								<span class="e-today-top-p-span-span">/{{gifts.length}}</span>
-							</span>
-						</p>
-						<p class="e-today-top-desc">给新朋友的见面礼遇：专享礼券和特价拼车</p>
-					</div>
-					<div class="e-today-swiper">
-						<div class="swiper-container2">
-							<div class="swiper-wrapper">
-								<div class="swiper-slide" v-for="today in gifts">
-									<div class="swiper-slide-div">
-										<img :src="today.img">
-										<p class="topic">{{today.type}}</p>
-										<p class="title">{{today.title}}</p>
-										<p class="desc">{{today.desc}}</p>
-									</div>
+			<div class="e-today">
+				<div class="e-today-top">
+					<p class="e-today-top-p">
+						<span>新人专区</span>
+						<span class="e-today-top-p-span"> {{initialSlide2}}
+							<span class="e-today-top-p-span-span">/{{gifts.length}}</span>
+						</span>
+					</p>
+					<p class="e-today-top-desc">给新朋友的见面礼遇：专享礼券和特价拼车</p>
+				</div>
+				<div class="e-today-swiper">
+					<div class="swiper-container2">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide" v-for="today in gifts">
+								<div class="swiper-slide-div">
+									<img :src="today.img">
+									<p class="topic">{{today.type}}</p>
+									<p class="title">{{today.title}}</p>
+									<p class="desc">{{today.desc}}</p>
 								</div>
 							</div>
-						</div>
-					</div>
-					<div style="padding:0 20px;margin-top:10px">
-						<div class="index-e-px">
 						</div>
 					</div>
 				</div>
@@ -244,6 +237,7 @@
 					.swiper-container2 {
 						width: 100%;
 						margin: 0 auto;
+						overflow: hidden;
 					}
 					.swiper-slide {
 						text-align: center;
