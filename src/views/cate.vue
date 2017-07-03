@@ -56,7 +56,6 @@
 		},
 		name: 'cate',
 		mounted(){
-			debugger;
 		},
 		data () {
 			return {
@@ -76,18 +75,6 @@
 		methods:{
 			focusShow(){
 				this.show = true;
-			},
-			twoSum(nums, target) {
-				if(nums){
-					var len = nums.length;
-					for(var i= 0; i < len; i++) {
-						for (var j = 0; j < len; j++) {
-							if (nums[i]+ nums[j] === target){
-								return [i, j]
-							}
-						}	
-					}
-				}
 			}
 		}
 	}

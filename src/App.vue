@@ -1,8 +1,6 @@
 <template>
 	<div id="app">
-		<transition name="bounce">
-			<router-view></router-view>
-		</transition>
+		<router-view></router-view>
 		<bottom v-model="value" :current="current"></bottom>
 	</div>
 </template>
