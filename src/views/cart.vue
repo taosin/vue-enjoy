@@ -118,13 +118,14 @@
 			}
 		}
 		.e-main{
-			position: absolute;
+			position: fixed;
 			top: 40px;
 			left: 0;
 			bottom:95px;
 			right: 0;
 			background-color: #f6f6f6;
 			overflow-y:auto; 
+			-webkit-overflow-scrolling : touch;
 			.e-main-content{
 				.lists{
 					width: 100%;
@@ -239,7 +240,7 @@
 			}
 		}
 		.e-check{
-			position: absolute;
+			position: fixed;
 			bottom: 40px;
 			left: 0;
 			right: 0;

@@ -109,7 +109,55 @@
 					</div>
 				</div>
 			</div>
-			<div style="padding:0 20px;margin-top:10px">
+			<div style="padding:0 20px;margin:10px 0">
+				<div class="index-e-px">
+				</div>
+			</div>
+			<!-- banner -->
+			<div class="e-banner">
+				<div class="e-today-swiper">
+					<div class="swiper-container3">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide" v-for="today in gifts">
+								<div class="swiper-slide-div">
+									<img :src="today.img">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div style="padding:0 20px;margin-top:0px">
+				<div class="index-e-px">
+				</div>
+			</div>
+			<!-- 上海新味 -->
+			<div class="e-today">
+				<div class="e-today-top">
+					<p class="e-today-top-p">
+						<span>上海新味</span>
+						<span class="e-today-top-p-span"> {{initialSlide2}}
+							<span class="e-today-top-p-span-span">/{{gifts.length}}</span>
+						</span>
+					</p>
+					<p class="e-today-top-desc">给新朋友的见面礼遇：专享礼券和特价拼车</p>
+				</div>
+				<div class="e-today-swiper">
+					<div class="swiper-container4">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide" v-for="today in gifts">
+								<div class="swiper-slide-div">
+									<img :src="today.img">
+									<p class="topic">{{today.type}}</p>
+									<p class="title">{{today.title}}</p>
+									<p class="desc">{{today.desc}}</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div style="padding:0 20px;margin:10px 0">
 				<div class="index-e-px">
 				</div>
 			</div>
@@ -161,7 +209,7 @@
 					centeredSlides: true,
 					paginationClickable: true,
 					spaceBetween: 10,
-					slidesOffsetBefore : 6.2,
+					slidesOffsetBefore : 0,
 					onTransitionEnd: function(swipers){
 						self.initialSlide = swipers.activeIndex + 1
 					}
@@ -171,10 +219,28 @@
 					centeredSlides: true,
 					paginationClickable: true,
 					spaceBetween: 10,
-					slidesOffsetBefore : 6.2,
+					slidesOffsetBefore : 0,
 					onTransitionEnd: function(swipers){
 						self.initialSlide2 = swipers.activeIndex + 1
 					}
+				});
+				var swiper3 = new Swiper('.swiper-container3', {
+					slidesPerView: 1.1,
+					centeredSlides: true,
+					paginationClickable: true,
+					spaceBetween: 10,
+					slidesOffsetBefore : 0,
+					onTransitionEnd: function(swipers){
+						self.initialSlide2 = swipers.activeIndex + 1
+					}
+				});
+				var swiper4 = new Swiper('.swiper-container4', {
+					slidesPerView: 2.1,
+					paginationClickable: true,
+					spaceBetween: 10,
+					slidesOffsetBefore : 10,
+					slidesOffsetAfter : 10,
+					freeMode: true
 				});
 			}
 		}
@@ -203,9 +269,14 @@
 			}
 		}
 		.e-main{
-			top: 40px;
+			top: 0px;
 			padding: 30px 0;
-			width: 100%;
+			overflow-y:auto; 
+			-webkit-overflow-scrolling : touch;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
 			.e-today{
 				clear: both;
 				.e-today-top{
@@ -227,68 +298,78 @@
 						color: #888;
 					}
 				}
-				.e-today-swiper{
-					margin-top: -5px;
+			}
+			.e-today-swiper{
+				margin-top: -5px;
+				text-align: center;
+				.swiper-container {
+					width: 100%;
+					margin: 0 auto;
+				}
+				.swiper-container2 {
+					width: 100%;
+					margin: 0 auto;
+					overflow: hidden;
+				}
+				.swiper-container3 {
+					width: 100%;
+					margin: 0 auto;
+					overflow: hidden;
+				}
+				.swiper-container4 {
+					width: 100%;
+					margin: 0 auto;
+					overflow: hidden;
+				}
+				.swiper-slide {
 					text-align: center;
-					.swiper-container {
-						width: 100%;
-						margin: 0 auto;
-					}
-					.swiper-container2 {
-						width: 100%;
-						margin: 0 auto;
-						overflow: hidden;
-					}
-					.swiper-slide {
-						text-align: center;
-						background: #fff;
-						width: 90%;
-						display: -webkit-box;
-						display: -ms-flexbox;
-						display: -webkit-flex;
-						display: flex;
-						-webkit-box-pack: center;
-						-ms-flex-pack: center;
-						-webkit-justify-content: center;
-						justify-content: center;
-						-webkit-box-align: center;
-						-ms-flex-align: center;
-						-webkit-align-items: center;
-						align-items: center;
-						.swiper-slide-div{
-							text-align: left;
-							img{
-								width: 100%;
-								text-align: center;
-								clear: both;
-								margin-bottom: 10px;
-							}
-							p{
-								clear: both;
-								padding: 0;
-								margin: 0;
-							}
-							.topic{
-								color: red;
-								font-size: 10px;
-							}
-							.title{
-								color: #333;
-								font-weight: bold;
-								font-size: 10pt;
-							}
-							.desc{
-								color: #888;
-								font-size: 1em;
-							}
+					background: #fff;
+					width: 90%;
+					display: -webkit-box;
+					display: -ms-flexbox;
+					display: -webkit-flex;
+					display: flex;
+					-webkit-box-pack: center;
+					-ms-flex-pack: center;
+					-webkit-justify-content: center;
+					justify-content: center;
+					-webkit-box-align: center;
+					-ms-flex-align: center;
+					-webkit-align-items: center;
+					align-items: center;
+					.swiper-slide-div{
+						text-align: left;
+						img{
+							width: 100%;
+							text-align: center;
+							clear: both;
+							margin-bottom: 10px;
+						}
+						p{
+							clear: both;
+							padding: 0;
+							margin: 0;
+						}
+						.topic{
+							color: red;
+							font-size: 10px;
+						}
+						.title{
+							color: #333;
+							font-weight: bold;
+							font-size: 10pt;
+						}
+						.desc{
+							color: #888;
+							font-size: 1em;
 						}
 					}
-					.swiper-slide:nth-child(2n) {
-						width: 90%;
-					}
-					.swiper-slide:nth-child(3n) {
-						width: 90%;
-					}
+				}
+				.swiper-slide:nth-child(2n) {
+					width: 90%;
+				}
+				.swiper-slide:nth-child(3n) {
+					width: 90%;
 				}
 			}
 			.index-cates{
@@ -341,6 +422,13 @@
 			}
 			.index-news{
 				padding: 0px 20px;
+			}
+			.e-banner{
+				// padding: 0px 20px;
+				img{
+					width: 100%;
+					height: 100px;
+				}
 			}
 		}
 		.index-e-px{

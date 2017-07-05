@@ -38,15 +38,16 @@
 <style scoped lang="less">
 	.e-my{
 		width: 100%;
-		background: #1a1a1a;
+		background: #ddd;
 		min-height: 100%;
 		color: #fff;
 		.e-my-top{
 			text-align: center;
+			background: #1a1a1a;
+			padding: 20px 0 30px 0;
 			p{
 				margin: 0;
 			}
-			padding: 20px 0 30px 0;
 			.e-my-info{
 				img{
 					border: 1px solid #fff;

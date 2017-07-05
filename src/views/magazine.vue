@@ -70,11 +70,13 @@
 			}
 		}
 		.e-main{
-			position: absolute;
+			position: fixed;
 			top: 44px;
 			left: 0;
 			bottom: 40px;
 			right: 0;
+			overflow-y:auto; 
+			-webkit-overflow-scrolling : touch;
 			.e-main-title{
 				width: 100%;
 				text-align: center;
