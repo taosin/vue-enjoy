@@ -167,6 +167,7 @@
 <script>
 	require('./../static/libs/swiper.min.css');
 	require('./../static/libs/swiper.min.js');
+	import { mapGetters, mapActions } from 'vuex'
 	export default {
 		components:{
 		},
@@ -200,6 +201,12 @@
 		},
 		mounted(){
 			this.initSwiper();
+		},
+		computed: mapGetters({
+			products: 'allProducts'
+		}),
+		created () {
+			this.$store.dispatch('queryProducts')
 		},
 		methods:{
 			initSwiper(){

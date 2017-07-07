@@ -7,6 +7,8 @@
 
 <script>
 	import bottom from '@/components/bottom.vue'
+	var config = require('./../config')
+	const AV = require('./../static/libs/av.js');
 	export default {
 		name: 'app',
 		components:{
@@ -24,7 +26,8 @@
 				current:0
 			}
 		},
-		watch:{
+		created(){
+			AV.init({appId:config.av.appId, appKey:config.av.appKey})
 		}
 	}
 </script>
